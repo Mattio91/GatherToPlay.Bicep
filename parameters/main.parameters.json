@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "parameters": {
+    "location": { "value": "westeurope" },
+    "projectName": { "value": "gathertoplay" },
+    "postgresAdminLogin": { "value": "sqladminuser" },
+    "linuxFxVersion": { "value": "DOCKER|nginx:latest" },
+    "keyVaultName": { "value": "prod-gather-keyvault" },
+    "postgresAdminPasswordSecretName": { "value": "prod-gather-postgres-key" }
+  }
+}
