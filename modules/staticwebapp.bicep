@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
 param projectName string = 'gathertoplay'
 
-resource staticWebApp 'Microsoft.Web/staticSites@2022-09-01' = {
+resource staticWebApp 'Microsoft.Web/staticSites@2024-11-01' = {
   name: '${projectName}-frontend'
   location: location
   sku: {

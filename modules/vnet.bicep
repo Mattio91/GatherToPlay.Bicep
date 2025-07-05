@@ -5,7 +5,7 @@ var vnetName = '${projectName}-vnet'
 var subnetDbName = 'db'
 var subnetAppName = 'appsvc'
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
   name: vnetName
   location: location
   properties: {
@@ -31,7 +31,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   }
 }
 
-resource dnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
+resource dnsZone 'Microsoft.Network/privateDnsZones@2024-06-01' = {
   name: 'privatelink.postgres.database.azure.com'
   location: 'global'
 }

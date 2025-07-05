@@ -11,3 +11,5 @@ param linuxFxVersion = 'DOCKER|nginx:latest'
 param keyVaultName = 'prod-gather-keyvault'
 
 param postgresAdminPasswordSecretName = 'prod-gather-postgres-key'
+
+param locationStaticWeb = 'westeurope'

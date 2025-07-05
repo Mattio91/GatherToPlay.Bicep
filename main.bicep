@@ -1,4 +1,5 @@
 param location string = resourceGroup().location
+param locationStaticWeb string = 'westeurope' // Static Web App location, can be different from resource group location
 param projectName string = 'gathertoplay'
 param keyVaultName string
 
@@ -10,7 +11,7 @@ param linuxFxVersion string = 'DOCKER|nginx:latest'
 
 
 
-resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2024-11-01' existing = {
   name: keyVaultName
   scope: resourceGroup()
 }
@@ -57,7 +58,7 @@ module appinsightsMod './modules/appinsights.bicep' = {
 module staticwebapp './modules/staticwebapp.bicep' = {
   name: 'staticWebApp'
   params: {
-    location: location
+    location: locationStaticWeb
     projectName: projectName
   }
 }

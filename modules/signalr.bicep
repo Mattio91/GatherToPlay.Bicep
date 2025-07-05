@@ -1,7 +1,7 @@
 param location string
 param projectName string
 
-resource signalr 'Microsoft.SignalRService/SignalR@2022-02-01' = {
+resource signalr 'Microsoft.SignalRService/signalR@2024-03-01' = {
   name: '${projectName}-signalr'
   location: location
   sku: {

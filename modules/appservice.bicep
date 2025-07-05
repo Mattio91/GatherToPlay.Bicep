@@ -8,7 +8,7 @@ param signalrConnectionString string
 param appInsightsConnectionString string
 
 // 1) App Service Plan
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
   name: '${projectName}-plan'
   location: location
   sku: { name: 'P0v3', tier: 'PremiumV3', capacity: 1 }
@@ -19,7 +19,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 }
 
 // 2) App Service with Managed Identity
-resource appService 'Microsoft.Web/sites@2022-03-01' = {
+resource appService 'Microsoft.Web/sites@2024-11-01' = {
   name: '${projectName}-api'
   location: location
   kind: 'app,linux'
@@ -44,7 +44,7 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
 }
 
 // 3) Storage Account for Blob Storage
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: '${projectName}storage'
   location: location
   sku: {
@@ -71,7 +71,7 @@ resource blobDataContributor 'Microsoft.Authorization/roleAssignments@2022-04-01
 }
 
 // VNet Integration
-resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2022-03-01' = {
+resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2024-11-01' = {
   name: 'vnet'
   parent: appService
   properties: { vnetResourceId: subnetAppId, isSwift: true }
@@ -81,7 +81,7 @@ resource vnetIntegration 'Microsoft.Web/sites/virtualNetworkConnections@2022-03-
 //    ARM will retrieve the primary key at deploy-time.
 var storageConnString = storageAccount.listKeys().keys[0].value
 
-resource appSettings 'Microsoft.Web/sites/config@2021-02-01' = {
+resource appSettings 'Microsoft.Web/sites/config@2024-11-01' = {
   parent: appService
   name: 'appsettings'
   properties: {
@@ -91,7 +91,7 @@ resource appSettings 'Microsoft.Web/sites/config@2021-02-01' = {
 }
 
 // Reference the Key Vault resource
-resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2024-12-01-preview' existing = {
   name: keyVaultName
   scope: resourceGroup()
 }

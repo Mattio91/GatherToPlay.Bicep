@@ -9,7 +9,7 @@ param dbAdminPasswordSecretName string
 var postgresServerName = '${projectName}-pg'
 var postgresDbName = 'gathertoplay'
 
-resource postgres 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
+resource postgres 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
   name: postgresServerName
   location: location
   properties: {
@@ -31,7 +31,7 @@ resource postgres 'Microsoft.DBforPostgreSQL/flexibleServers@2022-12-01' = {
     }
 }
 
-resource pgDatabase 'Microsoft.DBforPostgreSQL/flexibleServers/databases@2022-12-01' = {
+resource pgDatabase 'Microsoft.DBforPostgreSQL/flexibleServers/databases@2024-08-01' = {
   name: postgresDbName
   parent: postgres
 }

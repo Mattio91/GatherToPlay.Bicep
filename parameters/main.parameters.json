@@ -1,11 +1,14 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
   "parameters": {
-    "location": { "value": "westeurope" },
+    "location": { "value": "swedencentral" },
+    "locationStaticWeb": { "value": "westeurope" },
     "projectName": { "value": "gathertoplay" },
     "postgresAdminLogin": { "value": "sqladminuser" },
     "linuxFxVersion": { "value": "DOCKER|nginx:latest" },
     "keyVaultName": { "value": "prod-gather-keyvault" },
-    "postgresAdminPasswordSecretName": { "value": "prod-gather-postgres-key" }
+    "postgresAdminUser": { "value": "sqladminuser" }, 
+    "postgresAdminPasswordSecretName": { "value": "prod-gather-postgres-secret" }
   }
 }
